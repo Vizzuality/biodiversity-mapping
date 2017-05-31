@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'pier_sans';
+	src: url('../fonts/pier-bold-webfont.woff2') format('woff2'),
+		 url('../fonts/pier-bold-webfont.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'pier_sans';
+	src: url('../fonts/pier-bold-italic-webfont.woff2') format('woff2'),
+		 url('../fonts/pier-bold-italic-webfont.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'pier_sans';
+	src: url('../fonts/pier-italic-webfont.woff2') format('woff2'),
+		 url('../fonts/pier-italic-webfont.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'pier_sans';
+	src: url('../fonts/pier-regular-webfont.woff2') format('woff2'),
+		 url('../fonts/pier-regular-webfont.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}

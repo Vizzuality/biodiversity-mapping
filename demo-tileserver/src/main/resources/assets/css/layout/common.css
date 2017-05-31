@@ -1,0 +1,32 @@
+a {
+  text-decoration: none;
+  outline: none; }
+
+#wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 100vh; }
+
+.wrap-map {
+  position: relative;
+  min-height: 100vh; }
+
+.map-holder {
+  min-height: 100vh;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.logo {
+  position: absolute;
+  width: 213px;
+  top: 28px;
+  left: 21px; }
+  .logo a {
+    display: block; }
+  .logo img {
+    display: block;
+    width: 100%; }
+
+/*# sourceMappingURL=common.css.map */

@@ -1,0 +1,750 @@
+/* main styles */
+
+
+a {
+	text-decoration: none;
+	outline: none;
+}
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	min-height: 100vh;
+}
+
+.wrap-holder {
+	position: relative;
+	min-height: 100vh;
+}
+
+.map-holder {
+	min-height: 100vh;
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* logo styles */
+
+.logo {
+	position: absolute;
+	width: 213px;
+	top: 28px;
+	left: 19px;
+
+	@include media(">=tablet") {
+		top: 44px;
+		left: 52px;
+	}
+
+	a {
+		display: block;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+/* holder btn map styles */
+
+.holder-btn-map {
+	position: absolute;
+	top: 30px;
+	right: 15px;
+}
+
+/* settings wheel styles */
+
+.holder-settings-wheel {
+	position: relative;
+
+	@include media("<tablet") {
+		position: relative;
+		min-height: 172px;
+		width: 100%;
+		padding: 23px 24px 21px;
+	}
+
+	@include media(">=tablet") {
+		position: fixed;
+		top: 109px;
+		left: 26px;
+		width: 304px;
+		height: 304px;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+
+	.svg-box{
+		user-select: none;
+		@include media("<tablet") {
+			display: none;
+		}
+		.bg-wheel{
+			stroke: rgb(5, 23, 37);
+			stroke-width: 50;
+			stroke-opacity: 0.63;
+			fill: none;
+		}
+		.wheel-arc{
+			path{
+				fill:transparent;
+			}
+		}
+		.line{
+			stroke: rgb(4, 90, 110);
+			&.point{
+				stroke: white;
+				stroke-width: 2;
+			}
+			&.pre-active{
+				stroke: white;
+			}
+			&.active{
+				stroke: white;
+				stroke-width: 4;
+			}
+		}
+		.separator{
+			stroke: white;
+			stroke-width: 0.5;
+		}
+	}
+
+	.svg-scale{
+		@include media(">=tablet") {
+			display: none;
+		}
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+		user-select: none;
+
+		path{
+			fill: transparent;
+		}
+
+		.bg-scale{
+			fill: #052c3b;
+		}
+
+		.line{
+			stroke: white;
+			&.mobile-point{
+				stroke: #035b6d;
+				stroke-width: 2;
+			}
+			&.pre-active{
+				stroke: white;
+			}
+			&.active{
+				stroke: white;
+				stroke-width: 4;
+			}
+		}
+	}
+
+	.box {
+		min-width: 170px;
+		padding: 0 38px;
+		position: absolute;
+		left: 50%;
+		bottom: 18px;
+		transform: translateX(-50%);
+		text-align: center;
+		z-index: 2;
+
+		@include media(">=tablet") {
+			min-width: 150px;
+			padding: 0;
+			position: absolute;
+			top: 80px;
+			bottom: 80px;
+		}
+	}
+
+	.title{
+		display: block;
+		width: 100%;
+		color: white;
+		font-size: 11px;
+		letter-spacing: 0.07em;
+
+		@include media(">=tablet") {
+			position: absolute;
+			top: calc(50% + 15px);
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	.value{
+		display: block;
+		font-size: 46px;
+		line-height: 1;
+		color: white;
+		letter-spacing: 0.07em;
+
+		@include media(">=tablet") {
+			position: absolute;
+			width: 100%;
+			top: 38%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	.icon-chevron-up,
+	.icon-chevron-down{
+		@include animate(opacity);
+
+		position: absolute;
+		left: -15px;
+		background: none;
+		border: none;
+		font-size: 24px;
+		opacity: .5;
+
+		@include media("<tablet") {
+			top: 10px;
+		}
+
+		@include media(">=tablet") {
+			left: 6%;
+			bottom: -57px;
+			// transform: translate(-64px, 0);
+		}
+
+		&:hover{
+			opacity: 1;
+		}
+	}
+
+	.icon-chevron-down{
+		left: auto;
+
+		@include media("<tablet") {
+			right: -15px;
+		}
+
+		@include media(">=tablet") {
+			left: auto;
+			right: 7%;
+			// right: -50%;
+			// transform: translate(0px, 0);
+		}
+	}
+}
+
+/* setting bar styles */
+
+.settings-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: $dark-blue;
+	z-index: 5;
+
+	color: $white;
+
+
+	.holder-bar {
+		width: 100%;
+		position: relative;
+
+		@include media(">=desktop") {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+/* nav links styles and button styles*/
+
+.holder-nav-links {
+	display: flex;
+	flex-wrap: wrap;
+
+	@include media("<desktop") {
+		border-bottom: 2px solid $blue;
+	}
+
+	@include media(">=desktop") {
+		width: 41.1%;
+		border-right: 1px solid $blue;
+	}
+}
+
+.nav-drop-box {
+	width: 51%;
+	position: relative;
+
+	&:hover{
+		.holder-drop {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	@include media(">=desktop") {
+		width: 58.4%;
+	}
+
+	.holder-drop {
+		@include animate(opacity visibility);
+
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		right: 0;
+		padding: 0 0 21px;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 10;
+	}
+
+	.drop {
+		padding: 8px 0;
+		background-color: $dark-blue;
+		border: 1px solid #035b6d;
+	}
+
+	.menu-links {
+		@extend %listreset;
+
+		a {
+			@include animate(background-color);
+
+			display: block;
+			padding: 5px 13px;
+			color: $white;
+
+			&:hover{
+				@include media(">=desktop") {
+					background-color: $blue;
+				}
+			}
+		}
+	}
+}
+
+.opener-drop-box {
+	@include animate(color);
+
+	position: relative;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-transform: uppercase;
+	text-align: center;
+	color: $white;
+	line-height: 1.1;
+	letter-spacing: 0.42px;
+	border-right: 1px solid $blue;
+	border-left: 1px solid $blue;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+
+	& > span {
+		width: 100%;
+	}
+
+	&:hover{
+		@include media(">=desktop") {
+			background-color: $blue;
+		}
+
+		.title:after{
+			transform: translateY(-50%) rotate(180deg);
+		}
+	}
+
+	.title {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		font-style: normal;
+		padding: 14px 24px 13px 13px;
+
+		@include media(">=desktop") {
+			padding: 25px 43px 20px 15px;
+		}
+
+		@include media(">=widescreen") {
+			padding: 44px 43px 40px 15px;
+		}
+		&:after{
+			@include animate(transform);
+
+			content: "\e901";
+			position: absolute;
+			display: inline-block;
+			vertical-align: top;
+			top: 50%;
+			right: 7px;
+			font-family: 'icomoon';
+			font-size: 8px;
+			transform: translateY(-50%);
+
+			@include media(">=tablet") {
+				padding: 0 9px;
+				font-size: 16px;
+				right: -8px;
+			}
+
+			@include media(">=desktop") {
+				right: 11px;
+			}
+		}
+	}
+}
+
+.btn-link {
+	@include animate(background-color);
+
+	width: 16.333%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 14px 10px 13px;
+	color: $white;
+	line-height: 1.1;
+	text-transform: uppercase;
+	text-align: center;
+	border-right: 1px solid $blue;
+	border-left: 1px solid $blue;
+	letter-spacing: .42px;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+
+	@include media(">=desktop") {
+		padding: 25px 15px 20px;
+		width: 20.8%;
+	}
+
+	@include media(">=widescreen") {
+		padding: 44px 15px 40px;
+	}
+
+	&:hover{
+		@include media(">=desktop") {
+			background-color: $blue;
+		}
+	}
+
+	&.active {
+		background-color: $blue;
+	}
+
+	& > span {
+		display: block;
+		width: 100%;
+	}
+}
+
+.hidden-tablet {
+	@include media(">=tablet") {
+		display: none !important;
+	}
+}
+
+.hidden-mobile {
+	@include media("<tablet") {
+		display: none !important;
+	}
+}
+
+/* legend box and legend button styles */
+
+.opener-legend {
+	width: 16.333%;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding: 14px 10px 13px;
+	border-right: 1px solid $blue;
+	border-left: 1px solid $blue;
+
+	@include media(">=desktop") {
+		display: none;
+	}
+
+	&:before,
+	&:after,
+	span {
+		@include animate(transform background);
+		@include size(24px,2px);
+
+		background: $white;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%);
+		transform: translate(-50%, -50%);
+	}
+
+	span {
+		width: 21px;
+		left: calc(50% - 2px);
+
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 3px;
+			bottom: -7px;
+			height: 17px;
+			width: 3px;
+			background-color: $dark-blue;
+			z-index: 2;
+		}
+	}
+
+	&:before,
+	&:after {
+		content: '';
+		top: calc(50% - 6px);
+		z-index: -1;
+	}
+
+	&:after {
+		top: calc(50% + 7px);
+	}
+
+	&:hover,
+	&:focus {
+		&:before,
+		&:after,
+		span {
+			outline: none;
+		}
+	}
+}
+
+.holder-legend-area {
+	position: absolute;
+	bottom: calc(100% + 21px);
+	right: 14px;
+	display: block;
+	padding: 35px 16px 10px;
+	width: 254px;
+	height: 142px;
+	background-color: $dark-blue;
+	border: 1px solid #035b6d;
+	font-size: 16px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .5s ease, visibility .5s ease;
+
+	&.active{
+		opacity: 1;
+		visibility: visible;
+	}
+
+	@include media(">=tablet") {
+		right: 18px;
+	}
+
+	.title {
+		position: absolute;
+		display: block;
+		max-width: 80%;
+		top: 10px;
+		left: 16px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.icon-cross {
+		@include animate(opacity);
+
+		position: absolute;
+		top: 10px;
+		right: 14px;
+		font-size: 14px;
+		color: $white;
+
+		&:hover{
+			@include media(">=desktop") {
+				opacity: .7;
+			}
+		}
+	}
+}
+
+/* sheckboxes links styles  */
+
+.holder-checkboxes {
+	overflow-y: auto;
+	padding: 10px;
+
+	@include media(">=tablet") {
+		padding: 25px 15px;
+	}
+
+	@include media(">=desktop") {
+		align-self: center;
+		width: 58.9%;
+		padding: 26px 0 10px;
+	}
+}
+
+.nav-form {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+
+	.check-item {
+		position: relative;
+		text-align: center;
+
+		@include media(">=tablet") {
+			padding: 0 15px;
+		}
+
+		@include media(">=desktop") {
+			min-width: 16%;
+			padding: 0 3%;
+		}
+
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 7px;
+			left: 1px;
+			right: 1px;
+			z-index: 1;
+			border-top: 1px dashed #045c6e;
+		}
+
+		&:first-of-type:after {
+			left: 50%;
+		}
+
+		&:last-of-type:after {
+			right: 50%;
+		}
+	}
+}
+
+.custom-checkbox {
+	@include animate(border-color);
+
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #045c6e;
+	background: $dark-blue;
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 2;
+
+	&:before {
+		@include animate(opacity visibility);
+
+		content: " ";
+		overflow: hidden;
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background-color: $light-blue;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		border-radius: 50%;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 2;
+	}
+}
+
+.checkbox-label {
+	@include animate(opacity color);
+
+	display: block;
+	padding-top: 14px;
+	font-size: 16px;
+	line-height: 1.2;
+	color: #b9d1ff;
+	letter-spacing: 1px;
+	cursor: pointer;
+	opacity: .5;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	@include media(">=desktop") {
+		padding-top: 11px;
+	}
+}
+
+input[type="checkbox"]:checked {
+	+ .custom-checkbox {
+		border-color: $light-blue;
+
+		&:before {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	+ .custom-checkbox + .checkbox-label {
+		color: $light-blue;
+		opacity: 1;
+	}
+
+	.check-item:last-of-type & {
+		+ .custom-checkbox {
+			border-color: #13cec8;
+
+			&:before {
+				background-color: #13cec8;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		+ .custom-checkbox + .checkbox-label {
+			color: #13cec8;
+		}
+	}
+}
+
+input[type="checkbox"] {
+	position:fixed;
+	left:0;
+	top:0;
+	opacity:0;
+	z-index: -1;
+	visibility: hidden;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	display: none;
+}
+
+.checkbox-holder {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 10px;
+}
+
