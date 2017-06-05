@@ -15,6 +15,8 @@ import com.vizzuality.he.demo.maps.common.projection.Tiles;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
@@ -103,9 +105,11 @@ public class PointFeatureFilters {
     }
     Map<String, Integer> averaged = Maps.newHashMap();
     for (Map.Entry<String, List<Double>> e : collected.entrySet()) {
-      double avg = e.getValue().stream().mapToDouble(d -> d).average().getAsDouble();
-      int avg100 = (int) Math.floor(avg * 100);  // scale 0-100
-      averaged.put(e.getKey(), avg100);
+      OptionalDouble avg = e.getValue().stream().filter(d -> d > 0).mapToDouble(d -> d).average();
+      if (avg.isPresent()) {
+        int avg100 = (int) Math.floor(avg.getAsDouble() * 100);  // scale 0-100
+        averaged.put(e.getKey(), avg100);
+      }
     }
     return averaged;
   }

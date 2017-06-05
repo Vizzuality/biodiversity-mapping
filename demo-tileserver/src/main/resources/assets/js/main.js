@@ -38,7 +38,7 @@ if (!Object.assign) {
 // TODO: This is all global page scope and should be tidied by a JS dev.  It is a quick demo...
 
 // The layer to show on the map
-var feature = "mam_rich_percentank"
+var feature = "mammalsr"
 var threshold = 17; // TODO: replace with a better accessor for the Svg current value
 
 function setMapFeature(f) {
@@ -48,7 +48,7 @@ function setMapFeature(f) {
 
 // Sets the map layer filter threshold
 function setMapFilter(threshold) {
-  map.setFilter('biodiversity', ['>=', feature,  Math.floor(threshold)]);
+  map.setFilter('biodiversity', ['<=', feature,  Math.floor(threshold)]);
 }
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidGltcm9iZXJ0c29uMTAwIiwiYSI6ImNqM2Ria2FmMzAwMDMycWw3YjFhZTlrdXoifQ.arkRTZM2g-GL2LcGoR8X4g';
@@ -64,14 +64,13 @@ map.on('load', function () {
     "type": "fill",
     "source": {
       type: 'vector',
-      tiles: ['http://54.246.252.248/map/spp/richness/{z}/{x}/{y}.mvt?bin=hex&hexPerTile=91&v=2']
+      tiles: ['http://54.194.24.68/map/spp/richness/{z}/{x}/{y}.mvt?bin=hex&hexPerTile=61&v=5']
     },
     "source-layer": "biodiversity",
-    // TODO: cartography please
     "paint": {
       "fill-color": "#006600",
       "fill-opacity": 0.5,
-      "fill-outline-color": "#D8E7A4"  
+      "fill-outline-color": "#D8E7A4"
     },
   });
   setMapFilter(17); // TODO: perhaps a better way to couple the Svg and Map init than this?
@@ -193,12 +192,12 @@ map.on('load', function () {
 			this.value.innerHTML = this.progress + '%';
 			this.linesWheel.attr('class', getLineClass).attr('points', getWheelLinePoints);
 			this.linesScale.attr('class', getLineClass).attr('points', getScaleLinePoints);
-			
+
             // update the map
             if (map.loaded()) {
-              setMapFilter(this.progress)		
+              setMapFilter(this.progress)
             }
-            
+
 		},
 		createWheel: function() {
 			var width = this.options.width;

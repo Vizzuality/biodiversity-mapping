@@ -25,6 +25,15 @@ An example tile URL might be http://localhost:7001/map/spp/richness/{z}/{x}/{y}.
 
 The Vector Tiles will contain a single layer called `biodiversity`.  See the `index.html` for a very simple example of 
 use and styling.
+
+A useful utility to warm a cache (e.g. if you pur Varnish in front) might be:
+```
+nvm use 0.18
+npm install tilemantle -g
+tilemantle 'http://54.194.24.68/map/spp/richness/{z}/{x}/{y}.mvt?bin=hex&hexPerTile=61&v=3' --point=0,0 --buffer=1000000mi -z 0-5 -c 8 -d 2s
+
+```
  
 This work is forked from an early version of the work undertaken by [GBIF](https://github.com/gbif/maps).  This work is
 not expected to be used for anything other than a demo.
+

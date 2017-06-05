@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.Set;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -148,11 +149,11 @@ public class HexBin {
 
       if (hexagon.getSatelliteData().isPresent()) {
         hexagon.getSatelliteData().get().getMetadata().forEach((k,v) -> {
-            List<Double> values = (List<Double>)v;
-            double total = values.stream().mapToDouble(d -> d.doubleValue()).sum();
-            double avg = (total / values.size());
-            //LOG.info("{}:{}", k, avg);
-            meta.put(k, Math.floor(avg));
+          List<Double> values = (List<Double>)v;
+          OptionalDouble avg = values.stream().filter(d -> d > 0).mapToDouble(d -> d).average();
+          if (avg.isPresent()) {
+            meta.put(k, Math.floor(avg.getAsDouble()));
+          }
         });
       }
 

@@ -6,7 +6,7 @@
 	<title>HalfEarth</title>
 	<link media="all" rel="stylesheet" href="css/main.css">
 	<link href='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css' rel='stylesheet' />
-	
+
 	<script src='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js'></script>
 	<script src='https://d3js.org/d3.v4.js' defer></script>
 	<script src="js/main.js" defer></script>
@@ -76,10 +76,11 @@
 					<div class="holder-checkboxes">
 						<form action="#" class="checkboxes-form">
 							<fieldset>
+
 								<div class="nav-form">
 									<div class="check-item">
 										<label class="checkbox-holder">
-											<input type="checkbox" checked onclick="setMapFeature('mam_rich_percentank')">
+											<input type="checkbox" checked onclick="setMapFeature('mammalsr')">
 											<span class="custom-checkbox"></span>
 											<span class="checkbox-label">Protected Areas</span>
 										</label>
@@ -87,27 +88,27 @@
 									<div class="check-item">
 										<label class="checkbox-holder">
 											<input type="checkbox">
-											<span class="custom-checkbox" onclick="setMapFeature('mam_rich_noPA_percentank')"></span>
+											<span class="custom-checkbox" onclick="setMapFeature('mammalsr_pr')"></span>
 											<span class="checkbox-label">KBRS</span>
 										</label>
 									</div>
 									<div class="check-item">
 										<label class="checkbox-holder">
-											<input type="checkbox" onclick="setMapFeature('mam_rich_noPaPress_percentank')">
+											<input type="checkbox" onclick="setMapFeature('noPA_mammalsr_pr')">
 											<span class="custom-checkbox"></span>
 											<span class="checkbox-label">Nature</span>
 										</label>
 									</div>
 									<div class="check-item">
 										<label class="checkbox-holder">
-											<input type="checkbox" onclick="setMapFeature('brd_rich_percentank')">
+											<input type="checkbox" onclick="setMapFeature('available_mammalsr_pr')">
 											<span class="custom-checkbox"></span>
 											<span class="checkbox-label">Population…</span>
 										</label>
 									</div>
 									<div class="check-item">
 										<label class="checkbox-holder">
-											<input type="checkbox" onclick="setMapFeature('brd_rich_noPA_percentank');">
+											<input type="checkbox" onclick="setMapFeature('mammalsr');">
 											<span class="custom-checkbox"></span>
 											<span class="checkbox-label">Roads</span>
 										</label>
